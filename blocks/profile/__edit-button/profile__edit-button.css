@@ -8,6 +8,7 @@
   height: 24px;
   border: 1px solid #fff;
   cursor: pointer;
+  transition: all .2s linear;
 }
 
 @media (max-width: 767px) {
@@ -19,4 +20,8 @@
     right: -27px;
     top: 7px;
   }
+}
+
+.profile__edit-button:hover {
+  opacity: .6;
 }
