@@ -1,0 +1,9 @@
+.footer_retreat {
+  margin: 0 200px;
+}
+
+@media (max-width: 1023px) {
+  .footer_retreat {
+    margin: 0 19px;
+  }
+}
