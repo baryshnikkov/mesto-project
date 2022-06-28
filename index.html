@@ -7,7 +7,7 @@
   <meta name="description" content="Проект для путешественников! Делитесь своими фотографиями с другими пользователями." />
   <meta name="keywords" content="mesto Russia, Жак-Ив Кусто" />
   <meta name="author" content="Яндекс Практикум" />
-  <title>mesto Russia</title>
+  <title>место Россия</title>
   <link rel="stylesheet" href="./pages/index.css" />
 </head>
 
@@ -17,74 +17,76 @@
     <img src="./images/mesto-logo.svg" alt="Лого mesto" class="header__logo">
   </header>
 
-  <main>
+  <main class="content">
 
     <section class="profile profile_retreat">
       <img src="./images/avatar.jpg" alt="Жак-Ив Кусто" class="profile__avatar">
       <div class="profile__info">
         <div class="profile__text">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <input class="profile__edit-button" type="button" value="&#160;">
+          <button class="profile__edit-button" type="button"></button>
         </div>
         <p class="profile__profession">Исследователь океана</p>
       </div>
-      <input class="profile__add-button" type="button" value="&#160;">
+      <button class="profile__add-button" type="button"></button>
     </section>
 
     <section class="cards">
-      <div class="card">
+      <article class="card">
         <img src="./images/karachevsk.jpg" alt="Карачаевск" class="card__photo">
         <div class="card__text">
           <h2 class="card__title">Карачаевск</h2>
-          <input class="card__like" type="button" value="&#160;">
+          <button class="card__like" type="button"></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="card__photo">
         <div class="card__text">
           <h2 class="card__title">Гора Эльбрус</h2>
-          <input class="card__like card__like_active" type="button" value="&#160;">
+          <button class="card__like" type="button"></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./images/dombai.jpg" alt="Домбай" class="card__photo">
         <div class="card__text">
           <h2 class="card__title">Домбай</h2>
-          <input class="card__like" type="button" value="&#160;">
+          <button class="card__like" type="button"></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="card__photo">
         <div class="card__text">
           <h2 class="card__title">Гора Эльбрус</h2>
-          <input class="card__like" type="button" value="&#160;">
+          <button class="card__like" type="button"></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./images/dombai.jpg" alt="Домбай" class="card__photo">
         <div class="card__text">
           <h2 class="card__title">Домбай</h2>
-          <input class="card__like" type="button" value="&#160;">
+          <button class="card__like" type="button"></button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <img src="./images/karachevsk.jpg" alt="Карачаево-Черкессия" class="card__photo">
         <div class="card__text">
           <h2 class="card__title">Карачаево-Черкессия</h2>
-          <input class="card__like" type="button" value="&#160;">
+          <button class="card__like" type="button"></button>
         </div>
-      </div>
+      </article>
     </section>
 
-    <section class="popup popup_opened">
-      <form class="popup__container">
+    <div class="popup">
+      <div class="popup__content">
+        <button class="popup__in-button-exit" type="button"></button>
         <h2 class="popup__heading">Редактировать профиль</h2>
-        <input class="popup__in-text" type="text" value="Жак-Ив Кусто">
-        <input class="popup__in-text" type="text" value="Исследователь океана">
-        <input class="popup__in-button" type="button" value="Сохранить">
-        <input class="popup__in-button-exit" type="button" value="&#160;">
-      </form>
-    </section>
+        <form class="popup__container" name="profile">
+          <input class="popup__in-text popup__in-text_el_name" type="text" name="profile-name" placeholder="Имя">
+          <input class="popup__in-text popup__in-text_el_profession" type="text" name="profile-profession" placeholder="Описание">
+          <input class="popup__in-button" type="submit" value="Сохранить">
+        </form>
+      </div>
+    </div>
 
   </main>
 

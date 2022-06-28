@@ -1,5 +1,10 @@
 .profile__text {
   display: flex;
-  align-items: baseline;
   gap: 18px;
+}
+
+@media (max-width: 767px) {
+  .profile__text {
+    margin-left: 36px;
+  }
 }

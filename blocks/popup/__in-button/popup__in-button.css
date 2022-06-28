@@ -12,6 +12,7 @@
   cursor: pointer;
   border: none;
   transition: all .2s linear;
+  outline: none;
 }
 
 @media (max-width: 545px) {
