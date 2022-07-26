@@ -2,5 +2,5 @@
   width: 282px;
   height: 282px;
   object-position: center;
-  object-fit: contain;
+  object-fit: cover;
 }
