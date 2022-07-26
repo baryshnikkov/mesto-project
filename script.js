@@ -53,13 +53,19 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-  ];
+];
 
+function addCard(src) {
   const templateCard = document.querySelector('#card').content;
   const sectionCard = document.querySelector('.cards');
-  const newCard = templateCard.querySelector('.card').cloneNode(true);
-  newCard.querySelector('.card__photo').src = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg';
-  newCard.querySelector('.card__photo').alt = 'Архыз';
-  newCard.querySelector('.card__title').textContent = 'Архыз';
 
-  sectionCard.append(newCard);
+  src.forEach(el => {
+    const newCard = templateCard.querySelector('.card').cloneNode(true);
+    newCard.querySelector('.card__photo').src = el.link;
+    newCard.querySelector('.card__photo').alt = el.name;
+    newCard.querySelector('.card__title').textContent = el.name;
+    sectionCard.append(newCard);
+  });
+}
+
+addCard(initialCards);
