@@ -79,6 +79,7 @@ const profileNameInputAdd = popupAdd.querySelector('.popup__in-text_el_name');
 const profileProfessionInputAdd = popupAdd.querySelector('.popup__in-text_el_profession');
 const formCard = popupAdd.querySelector('.popup__container');
 
+
 buttonAddProfile.addEventListener('click', function () {
   popupAdd.classList.add('popup_opened');
 });
@@ -99,8 +100,19 @@ function addNewCard(evt) {
   const obj = {};
   obj.name = profileNameInputAdd.value;
   obj.link = profileProfessionInputAdd.value;
+  const buttonLike = document.querySelector('.card__like');
+  buttonLike.addEventListener('click', function (evt) {
+    evt.target.classList.toggle('card__like_active');
+  });
   initialCards.unshift(obj);
   popupClose(popupAdd);
 }
 
 formCard.addEventListener('submit', addNewCard);
+
+const buttonsLike = document.querySelectorAll('.card__like');
+buttonsLike.forEach(function (el) {
+  el.addEventListener('click', function () {
+    el.classList.toggle('card__like_active');
+  });
+})
