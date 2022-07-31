@@ -13,6 +13,7 @@ const profileNameInputAdd = popupAdd.querySelector('.popup__in-text_el_name');
 const profileProfessionInputAdd = popupAdd.querySelector('.popup__in-text_el_profession');
 const formCard = popupAdd.querySelector('.popup__container');
 const popupImgButtonClose = document.querySelector('.popup-img__button-exit');
+const templateCard = document.querySelector('#card').content;
 
 
 function openModalWindow(modalWindow) {
@@ -31,7 +32,6 @@ function submitHandlerEditProfile(evt) {
 }
 
 function createCard(name, link) {
-  const templateCard = document.querySelector('#card').content;
   const newCard = templateCard.querySelector('.card').cloneNode(true);
   newCard.querySelector('.card__photo').src = link;
   newCard.querySelector('.card__photo').alt = name;
@@ -50,9 +50,9 @@ function createCard(name, link) {
     const popupImgOpene = document.querySelector('.popup-img');
     const popupImgPhoto = popupImgOpene.querySelector('.popup-img__photo');
     const popupImgCaption = popupImgOpene.querySelector('.popup-img__caption');
-    popupImgPhoto.src = evt.target.src;
-    popupImgPhoto.alt = evt.target.parentElement.querySelector('.card__title').textContent;
-    popupImgCaption.textContent = evt.target.parentElement.querySelector('.card__title').textContent;
+    popupImgPhoto.src = link;
+    popupImgPhoto.alt = name;
+    popupImgCaption.textContent = name;
     openModalWindow(popupImgOpene);
   });
   return newCard
