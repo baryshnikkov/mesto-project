@@ -23,6 +23,6 @@
   }
 }
 
-.popup__in-button:hover {
+.popup__in-button:hover:not(.popup__in-button_disabled) {
   opacity: .8;
 }
