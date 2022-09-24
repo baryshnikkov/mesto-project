@@ -1,9 +1,0 @@
-.header_retreat {
-  margin: 45px 200px 40px;
-}
-
-@media (max-width: 1023px) {
-  .header_retreat {
-    margin: 28px 0 42px;
-  }
-}

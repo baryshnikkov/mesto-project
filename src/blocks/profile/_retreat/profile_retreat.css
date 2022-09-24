@@ -1,9 +1,0 @@
-.profile_retreat {
-  margin: 0 200px 50px;
-}
-
-@media (max-width: 1023px) {
-  .profile_retreat {
-    margin: 0 19px 36px;
-  }
-}
