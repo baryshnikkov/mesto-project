@@ -12,7 +12,7 @@
 
 ### Технологии
 
-Проект реализован с ипользованием HTML, CSS и JS
+Проект реализован с ипользованием HTML, CSS, JS и WebPack
 
 ### GitHub Pages
 * [Ссылка на сайт в GitHub Pages](https://mbkov.github.io/mesto-project/)

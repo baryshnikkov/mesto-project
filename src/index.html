@@ -9,19 +9,18 @@
   <meta name="keywords" content="mesto Russia, Жак-Ив Кусто" />
   <meta name="author" content="Яндекс Практикум" />
   <title>место Россия</title>
-  <link rel="stylesheet" href="./pages/index.css" />
 </head>
 
 <body class="page">
 
   <header class="header header_retreat">
-    <img src="./images/mesto-logo.svg" alt="Лого mesto" class="header__logo">
+    <img src="<%=require('./images/mesto-logo.svg')%>" alt="Лого mesto" class="header__logo">
   </header>
 
   <main class="content">
 
     <section class="profile profile_retreat">
-      <img src="./images/avatar.jpg" alt="Жак-Ив Кусто" class="profile__avatar">
+      <img src="<%=require('./images/avatar.jpg')%>" alt="Жак-Ив Кусто" class="profile__avatar">
       <div class="profile__info">
         <div class="profile__text">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -42,12 +41,12 @@
         <form class="popup__container" name="profile" novalidate>
           <input id="name-input" class="popup__in-text popup__in-text_el_name" type="text" name="profile-name"
             placeholder="Имя" required minlength="2" maxlength="20" pattern="^[a-zA-Zа-яА-Я\- ]+$"
-            data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы">
+            data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
           <span class="name-input-error form__input-error"></span>
           <input id="profession-input" class="popup__in-text popup__in-text_el_profession" type="text"
             name="profile-profession" placeholder="О себе" required minlength="2" maxlength="200"
             pattern="^[a-zA-Zа-яА-Я\- ]+$"
-            data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы">
+            data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
           <span class="profession-input-error form__input-error"></span>
           <button class="popup__in-button" type="submit">Сохранить</button>
         </form>
@@ -61,7 +60,7 @@
         <form class="popup__container" name="profile">
           <input id="name-input" class="popup__in-text popup__in-text_el_name" type="text" name="profile-name"
             placeholder="Название" required minlength="2" maxlength="30" pattern="^[a-zA-Zа-яА-Я\- ]+$"
-            data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы">
+            data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
           <span class="name-input-error form__input-error"></span>
           <input id="url-input" class="popup__in-text popup__in-text_el_profession" type="url" name="url-card"
             placeholder="Ссылка на картинку" required>
@@ -95,9 +94,6 @@
       </div>
     </div>
   </template>
-
-  <script src="./constants.js"></script>
-  <script src="./script.js"></script>
 
 </body>
 
