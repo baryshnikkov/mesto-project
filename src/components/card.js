@@ -1,11 +1,15 @@
 import { openModalWindow } from './modal.js'
+import { popupImage } from './utils.js';
 
 const templateCard = document.querySelector('#card').content;
+const popupImgPhoto = popupImage.querySelector('.popup-img__photo');
+const popupImgCaption = popupImage.querySelector('.popup-img__caption');
 
-function createCard(name, link) {
+export function createCard(name, link) {
   const newCard = templateCard.querySelector('.card').cloneNode(true);
-  newCard.querySelector('.card__photo').src = link;
-  newCard.querySelector('.card__photo').alt = name;
+  const cardPhoto = newCard.querySelector('.card__photo');
+  cardPhoto.src = link;
+  cardPhoto.alt = name;
   newCard.querySelector('.card__title').textContent = name;
   const buttonLike = newCard.querySelector('.card__like');
   buttonLike.addEventListener('click', function (evt) {
@@ -18,19 +22,10 @@ function createCard(name, link) {
   });
   const popupCardPhoto = newCard.querySelector('.card__photo');
   popupCardPhoto.addEventListener('click', function (evt) {
-    const popupImgOpene = document.querySelector('.popup-img');
-    const popupImgPhoto = popupImgOpene.querySelector('.popup-img__photo');
-    const popupImgCaption = popupImgOpene.querySelector('.popup-img__caption');
     popupImgPhoto.src = link;
     popupImgPhoto.alt = name;
     popupImgCaption.textContent = name;
-    openModalWindow(popupImgOpene);
+    openModalWindow(popupImage);
   });
   return newCard
-}
-
-export function renderCard(name, link, container) {
-  const containerCard = document.querySelector(`.${container}`);
-  const element = createCard(name, link);
-  containerCard.prepend(element);
 }

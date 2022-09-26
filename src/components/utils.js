@@ -1,5 +1,3 @@
-import { closeModalWindow } from './modal.js';
-
 export const buttonAddProfile = document.querySelector('.profile__add-button');
 export const popupAdd = document.querySelector('#popup-create');
 export const buttonPopupAddClose = popupAdd.querySelector('.popup__in-button-exit');
@@ -13,11 +11,5 @@ export const profileProfessionInputEdit = popupEdit.querySelector('.popup__in-te
 export const profileName = document.querySelector('.profile__name');
 export const profileProfession = document.querySelector('.profile__profession');
 export const buttonPopupEditClose = popupEdit.querySelector('.popup__in-button-exit');
-export const formElement = popupEdit.querySelector('.popup__container');
-
-export function submitHandlerEditProfile(evt) {
-  evt.preventDefault();
-  profileName.textContent = profileNameInputEdit.value;
-  profileProfession.textContent = profileProfessionInputEdit.value;
-  closeModalWindow(popupEdit);
-}
+export const formEditProfile = popupEdit.querySelector('.popup__container');
+export const popupImage = document.querySelector('.popup-img');
