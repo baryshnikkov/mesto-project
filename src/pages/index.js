@@ -52,6 +52,7 @@ formCard.addEventListener('submit', function (evt) {
   renderCard(profileNameInputAdd.value, profileProfessionInputAdd.value, 'cards');
   formCard.reset();
   closeModalWindow(popupAdd);
+  enableValidation(validateObj);
 });
 
 buttonEditProfile.addEventListener('click', function (evt) {
