@@ -1,5 +1,4 @@
 import './index.css'
-import { initialCards } from '../components/constants.js';
 import { enableValidation, checkValidation } from '../components/validate.js';
 import { createCard } from '../components/card.js';
 import { popupImgButtonClose, closeModalWindow, openModalWindow } from '../components/modal.js'
@@ -26,13 +25,11 @@ function submitHandlerEditProfile() {
     .then((res) => {
       profileName.textContent = res.name;
       profileProfession.textContent = res.about;
+      editSave.textContent = 'Сохранить';
+      closeModalWindow(popupEdit);
     })
     .catch((err) => {
       console.log(err);
-    })
-    .finally(() => {
-      closeModalWindow(popupEdit);
-      editSave.textContent = 'Сохранить';
     })
 }
 
@@ -42,26 +39,19 @@ function renderCard(el, container) {
   containerCard.prepend(element);
 }
 
-getInformByUser()
-  .then((res) => {
-    profileName.textContent = res.name;
-    profileProfession.textContent = res.about;
-    avatarUser.src = res.avatar;
-    idUser = res._id;
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-getCards()
-  .then((res) => {
-    res.reverse().forEach(function (el) {
+Promise.all([getInformByUser(), getCards()])
+  .then(([user, cards]) => {
+    idUser = user._id;
+    profileName.textContent = user.name;
+    profileProfession.textContent = user.about;
+    avatarUser.src = user.avatar;
+    cards.reverse().forEach(function (el) {
       renderCard(el, 'cards');
     })
   })
   .catch((err) => {
     console.log(err);
-  });
+  })
 
 popupImgButtonClose.addEventListener('click', function () {
   closeModalWindow(popupImage);
@@ -81,15 +71,13 @@ formCard.addEventListener('submit', function (evt) {
   addNewCard(`${profileNameInputAdd.value}`, `${profileProfessionInputAdd.value}`)
     .then((res) => {
       renderCard(res, 'cards');
+      createSave.textContent = 'Сохранить';
+      formCard.reset();
+      closeModalWindow(popupAdd);
+      enableValidation(validateObj);
     })
     .catch((err) => {
       console.log(err);
-    })
-    .finally(() => {
-      formCard.reset();
-      createSave.textContent = 'Сохранить';
-      closeModalWindow(popupAdd);
-      enableValidation(validateObj);
     })
 });
 
@@ -120,15 +108,13 @@ submitFormAvatar.addEventListener('submit', function (evt) {
   changeAvatar(urlNewAvatar.value)
     .then((res) => {
       avatarUser.src = res.avatar;
+      avatarSave.textContent = 'Сохранить';
+      submitFormAvatar.reset();
+      closeModalWindow(popupAvatar);
+      enableValidation(validateObj);
     })
     .catch((err) => {
       console.log(err);
-    })
-    .finally(() => {
-      submitFormAvatar.reset();
-      avatarSave.textContent = 'Сохранить';
-      closeModalWindow(popupAvatar);
-      enableValidation(validateObj);
     })
 });
 

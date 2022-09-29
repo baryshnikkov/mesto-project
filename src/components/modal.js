@@ -13,16 +13,14 @@ export function closeModalWindow(modalWindow) {
 }
 
 function closeByOvelayClick(evt) {
-  const popupOpened = document.querySelector('.popup_opened');
-  if (popupOpened === evt.target) {
-    closeModalWindow(popupOpened);
+  if (evt.target.classList.contains('popup_opened')) {
+    closeModalWindow(evt.target);
   }
 }
 
 function closeByEscPress(evt) {
-  const popupOpened = document.querySelector('.popup_opened');
-  const escCode = 27;
-  if (evt.keyCode === escCode) {
+  if (evt.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
     closeModalWindow(popupOpened);
   }
 }

@@ -27,6 +27,7 @@ export function createCard(el) {
       deleteLike(el._id)
         .then((res) => {
           newCard.querySelector('.card__numbers').textContent = res.likes.length;
+          evt.target.classList.remove('card__like_active');
           if (res.likes.length === 0) {
             newCard.querySelector('.card__numbers').textContent = '';
           }
@@ -35,9 +36,9 @@ export function createCard(el) {
       putLike(el._id)
         .then((res) => {
           newCard.querySelector('.card__numbers').textContent = res.likes.length;
+          evt.target.classList.add('card__like_active');
         });
     }
-    evt.target.classList.toggle('card__like_active');
   });
 
   if (idUser === el.owner._id) {

@@ -5,18 +5,21 @@ const config = {
   headers: {
     authorization: '05cc3a2e-5b2a-47f6-84c3-1337641f5c93',
     'Content-Type': 'application/json'
+  },
+  getResponseData(res) {
+    if (!res.ok) {
+      return Promise.reject(`Ошибка: ${res.status}`);
+    }
+    return res.json();
   }
-}
+};
 
 export function getInformByUser() {
   return fetch(`${config.baseUrl}/users/me`, {
     headers: config.headers
   })
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return config.getResponseData(res);
     })
 }
 
@@ -26,10 +29,7 @@ export function getCards() {
     headers: config.headers
   })
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return config.getResponseData(res);
     })
 }
 
@@ -43,10 +43,7 @@ export function editProfile(name, about) {
     })
   })
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return config.getResponseData(res);
     })
 }
 
@@ -60,10 +57,7 @@ export function addNewCard(name, link) {
     })
   })
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return config.getResponseData(res);
     })
 }
 
@@ -73,10 +67,7 @@ export function deleteCard(id) {
     headers: config.headers
   })
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return config.getResponseData(res);
     })
 }
 
@@ -86,10 +77,7 @@ export function putLike(id) {
     headers: config.headers
   })
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return config.getResponseData(res);
     })
 }
 
@@ -99,10 +87,7 @@ export function deleteLike(id) {
     headers: config.headers
   })
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return config.getResponseData(res);
     })
 }
 
@@ -115,10 +100,6 @@ export function changeAvatar(avatar) {
     })
   })
     .then(res => {
-      avatarSave.textContent = 'adfsdf';
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return config.getResponseData(res);
     })
 }
