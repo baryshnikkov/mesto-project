@@ -25,11 +25,13 @@ function submitHandlerEditProfile() {
     .then((res) => {
       profileName.textContent = res.name;
       profileProfession.textContent = res.about;
-      editSave.textContent = 'Сохранить';
       closeModalWindow(popupEdit);
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      editSave.textContent = 'Сохранить';
     })
 }
 
@@ -59,6 +61,7 @@ popupImgButtonClose.addEventListener('click', function () {
 
 buttonAddProfile.addEventListener('click', function () {
   openModalWindow(popupAdd);
+  checkValidation(formCard, validateObj)
 });
 
 buttonPopupAddClose.addEventListener('click', function () {
@@ -71,13 +74,14 @@ formCard.addEventListener('submit', function (evt) {
   addNewCard(`${profileNameInputAdd.value}`, `${profileProfessionInputAdd.value}`)
     .then((res) => {
       renderCard(res, 'cards');
-      createSave.textContent = 'Сохранить';
       formCard.reset();
       closeModalWindow(popupAdd);
-      enableValidation(validateObj);
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      createSave.textContent = 'Сохранить';
     })
 });
 
@@ -96,6 +100,7 @@ formEditProfile.addEventListener('submit', submitHandlerEditProfile);
 
 buttonEditAvatar.addEventListener('click', function () {
   openModalWindow(popupAvatar);
+  checkValidation(submitFormAvatar, validateObj);
 });
 
 buttonPopupAvatarClose.addEventListener('click', function () {
@@ -108,13 +113,14 @@ submitFormAvatar.addEventListener('submit', function (evt) {
   changeAvatar(urlNewAvatar.value)
     .then((res) => {
       avatarUser.src = res.avatar;
-      avatarSave.textContent = 'Сохранить';
       submitFormAvatar.reset();
       closeModalWindow(popupAvatar);
-      enableValidation(validateObj);
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      avatarSave.textContent = 'Сохранить';
     })
 });
 

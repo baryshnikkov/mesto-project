@@ -44,6 +44,9 @@ export function checkValidation(form, validationConfig) {
 
   inputList.forEach(function (input) {
     isValid(form, input, validationConfig);
+    if (input.value.length === 0) {
+      hideInputError(form, input, validationConfig);
+    }
     toggleButtonState(inputList, button, validationConfig);
   });
 }
