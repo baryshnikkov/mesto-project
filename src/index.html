@@ -7,34 +7,33 @@
   <meta name="description"
     content="Проект для путешественников! Делитесь своими фотографиями с другими пользователями." />
   <meta name="keywords" content="mesto Russia, Жак-Ив Кусто" />
-  <meta name="author" content="Яндекс Практикум" />
+  <meta name="author" content="mbkov" />
   <title>место Россия</title>
 </head>
 
 <body class="page">
 
-  <header class="header header_retreat">
-    <img src="<%=require('./images/mesto-logo.svg')%>" alt="Лого mesto" class="header__logo">
+  <header class="header">
+    <img class="header__logo" src="<%=require('./images/logo-mesto/logo-mesto.svg')%>" alt="Логотип mesto">
   </header>
 
   <main class="content">
-    <section class="profile profile_retreat">
-      <div class="profile__container">
-        <img src="<%=require('./images/avatar.jpg')%>" alt="Аватар" class="profile__avatar">
-        <div class="profile__overlay"></div>
+
+    <section class="profile">
+      <div class="profile__container-avatar">
+        <img class="profile__avatar" src="<%=require('./images/avatar/unnamed-avatar.png')%>" alt="Аватар пользователя">
+        <button class="profile__edit-avatar" type="button" aria-label="Редактировать аватар пользователя"></button>
       </div>
       <div class="profile__info">
-        <div class="profile__text">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button button-opene" type="button"></button>
-        </div>
-        <p class="profile__profession">Исследователь океана</p>
+        <h1 class="profile__name">Имя</h1>
+        <p class="profile__about">О себе</p>
+        <button class="profile__edit-info" type="button" aria-label="Редактировать информацию пользователя"></button>
       </div>
-      <button class="profile__add-button button-opene" type="button"></button>
+      <button class="profile__add-card" type="button" aria-label="Добавить новую карточку"></button>
     </section>
 
-    <section class="cards" aria-label="Ветрина фотографий">
-    </section>
+    <!-- <section class="cards" aria-label="Ветрина фотографий">
+    </section> -->
 
     <div id="popup-edit" class="popup">
       <div class="popup__content">
@@ -95,8 +94,8 @@
 
   </main>
 
-  <footer class="footer footer_retreat">
-    <p class="footer__text">© 2020 Mesto Russia</p>
+  <footer class="footer">
+    <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
 
   <template id="card">

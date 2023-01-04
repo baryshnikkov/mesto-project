@@ -1,18 +1,23 @@
-.profile__profession {
+.profile__about {
   margin: 0;
   font-size: 18px;
   line-height: 22px;
-  max-width: 330px;
+  max-width: 420px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
+@media (max-width: 880px) {
+  .profile__about {
+    max-width: 350px;
+  }
+}
+
 @media (max-width: 767px) {
-  .profile__profession {
+  .profile__about {
     font-size: 14px;
     line-height: 17px;
-    margin: auto;
-    max-width: 270px;
+    max-width: 200px;
   }
 }
