@@ -9,10 +9,16 @@ export const apiConfig = {
 export const validateConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save',
-  inactiveButtonClass: 'popup__save_disabled',
+  submitButtonSelector: '.popup__submit',
+  inactiveButtonClass: 'popup__submit_disabled',
   inputErrorClass: 'popup__input_error',
   errorClass: 'popup__input-error_active'
+}
+
+export const userSelectorsConfig = {
+  name: '.profile__name',
+  about: '.profile__about',
+  avatar: '.profile__avatar'
 }
 
 export const buttonEditAvatar = document.querySelector('.profile__edit-avatar');

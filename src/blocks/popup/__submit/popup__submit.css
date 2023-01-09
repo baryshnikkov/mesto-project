@@ -1,4 +1,4 @@
-.popup__save {
+.popup__submit {
   height: 50px;
   background-color: #000;
   border-radius: 2px;
@@ -16,13 +16,13 @@
 }
 
 @media (max-width: 545px) {
-  .popup__save {
+  .popup__submit {
     font-size: 14px;
     line-height: 17px;
     margin-top: 15px;
   }
 }
 
-.popup__save:hover:not(.popup__save_disabled) {
+.popup__submit:hover:not(.popup__submit_disabled) {
   opacity: .8;
 }

@@ -5,7 +5,7 @@ export default class PopupDeleteCard extends Popup {
     super(popupSelector);
     this._hendleSubmit = hendleSubmit;
 
-    this._buttonDelete = this._popup.querySelector('.popup__delete');
+    this._buttonDelete = this._popup.querySelector('.popup__submit');
     this._buttonDeleteText = this._buttonDelete.textContent;
   }
 

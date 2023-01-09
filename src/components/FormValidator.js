@@ -2,7 +2,7 @@ export default class FormValidator {
   constructor(config, form) {
     this._form = document.querySelector(form);
     this._inputList = Array.from(this._form.querySelectorAll(config.inputSelector));
-    this._button = this._form.querySelector(config.submitButtonSelector);
+    this._submit = this._form.querySelector(config.submitButtonSelector);
 
     this._inactiveButtonClass = config.inactiveButtonClass;
     this._inputErrorClass = config.inputErrorClass;
@@ -11,8 +11,6 @@ export default class FormValidator {
 
   addValidation() {
     this._inputList.forEach(inputElement => {
-      this.checkValidation();
-
       inputElement.addEventListener('input', () => {
         this._isValid(inputElement);
         this._toggleButtonState();
@@ -29,11 +27,11 @@ export default class FormValidator {
 
   _toggleButtonState() {
     if (this._checkValidationInput()) {
-      this._button.disabled = true;
-      this._button.classList.add(this._inactiveButtonClass);
+      this._submit.disabled = true;
+      this._submit.classList.add(this._inactiveButtonClass);
     } else {
-      this._button.disabled = false;
-      this._button.classList.remove(this._inactiveButtonClass);
+      this._submit.disabled = false;
+      this._submit.classList.remove(this._inactiveButtonClass);
     }
   }
 

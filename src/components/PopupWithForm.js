@@ -5,7 +5,7 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._hendleSubmit = hendleSubmit;
 
-    this._submitButton = this._popup.querySelector('.popup__save');
+    this._submitButton = this._popup.querySelector('.popup__submit');
     this._submitButtonText = this._submitButton.textContent;
 
     this._form = this._popup.querySelector('.popup__form');
