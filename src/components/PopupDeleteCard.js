@@ -1,22 +1,26 @@
 import Popup from "./Popup.js";
 
-export default class PopupDeleteCard extends Popup {
-  constructor(popupSelector, { hendleSubmit }) {
-    super(popupSelector);
+export default class PopupDeleteImage extends Popup {
+  constructor(selector, { hendleSubmit }) {
+    super(selector);
     this._hendleSubmit = hendleSubmit;
-
     this._buttonDelete = this._popup.querySelector('.popup__submit');
     this._buttonDeleteText = this._buttonDelete.textContent;
   }
 
-  open(cardId) {
+  open(item, cardId) {
     super.open();
 
+    this._item = item;
     this._cardId = cardId;
   }
 
-  renderLoading(isLoading, loadingText = 'Сохранение...') {
-    this._buttonDelete.textContent = (isLoading) ? loadingText : this._buttonDeleteText;
+  renderLoading(isLoading, loadingText = 'Удаление...') {
+    if (isLoading) {
+      this._buttonDelete.textContent = loadingText;
+    } else {
+      this._buttonDelete.textContent = this._buttonDeleteText;
+    }
   }
 
   _addEventListeners() {
@@ -34,6 +38,6 @@ export default class PopupDeleteCard extends Popup {
 
   _clickOnSubmit(evt) {
     evt.preventDefault();
-    this._hendleSubmit(this._cardId);
+    this._hendleSubmit(this._item, this._cardId);
   }
 }

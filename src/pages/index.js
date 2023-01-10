@@ -85,20 +85,53 @@ const createCard = (item) => {
 };
 
 const formEditAvatar = new PopupWithForm('#popup-edit-avatar', {
-  hendleSubmit: () => {
-    console.log('editAvatar');
+  hendleSubmit: (element) => {
+    formEditAvatar.renderLoading(true);
+    api.updateAvatar(element['avatar-link'])
+      .then((res) => {
+        userInfo.setUserInfo(res);
+        formEditAvatar.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        formEditAvatar.renderLoading(false);
+      });
   }
 });
 
 const formEditInfo = new PopupWithForm('#popup-edit-info', {
-  hendleSubmit: () => {
-    console.log('editInfo');
+  hendleSubmit: (element) => {
+    formEditInfo.renderLoading(true);
+    api.changeUserData(element['info-name'], element['info-about'])
+      .then((res) => {
+        userInfo.setUserInfo(res);
+        formEditInfo.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        formEditInfo.renderLoading(false);
+      });
   }
 });
 
 const formAddCard = new PopupWithForm('#popup-add-card', {
-  hendleSubmit: () => {
-    console.log('addCard');
+  hendleSubmit: (element) => {
+    formAddCard.renderLoading(true);
+    api.addNewCard(element['card-name'], element['card-link'])
+      .then((cards) => {
+        cardList.renderItems(cards);
+        formAddCard.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        formAddCard.renderLoading(false);
+      });
   }
 });
 
@@ -116,6 +149,7 @@ constants.buttonEditAvatar.addEventListener('click', () => {
 });
 
 constants.buttonEditInfo.addEventListener('click', () => {
+  formEditInfo.setInputValues(userInfo.getUserInfo());
   validateFormEditInfo.checkValidation();
   formEditInfo.open();
 });
