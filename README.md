@@ -15,7 +15,7 @@
 Проект реализован с ипользованием HTML, CSS, JS и WebPack
 
 ### GitHub Pages
-* [Ссылка на сайт в GitHub Pages](https://mbkov.github.io/mesto-project/)
+* [Ссылка на сайт в GitHub Pages](https://baryshnikkov.github.io/mesto-project/)
 
 ### Figma
 
