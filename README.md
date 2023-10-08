@@ -1,22 +1,26 @@
-# Проект: mesto Russia
+<img src="https://i.ibb.co/VV7dm7M/mesto.jpg" alt="Logo of the project" align="right" width="200" height="250">
 
-## Обзор
-* Описание проекта
-* Технологии
-* GitHub Pages
-* Figma
+## Описание проекта
 
-### Описание проекта
+Данная проектная работа представляет собой одностраничный адаптивный лэндинг. Для разметки страницы используется семантическая верстка, наименование классов и файловая организация реализована на основе БЭМ-методологии. У попапов в проекте реализована валидация. Проект собран с помощью Webpack. Конфигурация Webpack декомпозирована, опции конфигурации хранятся по пути `/config/build`. Используется парадигма программирования ОПП.
 
-Страница пользователя с фотографиями, где другие участники смогут оценивать публикации.
+----
 
-### Технологии
+## Запуск проекта
 
-Проект реализован с ипользованием HTML, CSS, JS и WebPack
+`npm install` - устанавливаем зависимости
+`npm run start` - запуск проекта
 
-### GitHub Pages
-* [Ссылка на сайт в GitHub Pages](https://baryshnikkov.github.io/mesto-project/)
+----
 
-### Figma
+## Скрипты
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+- `npm run start` - запуск проекта
+- `npm run build:prod` - сборка проекта в prod режиме
+- `npm run build:dev` - сборка проекта в dev режиме
+- `npm run predeploy` - сборка проекта перед деплоем на gh-pages
+- `npm run deploy` - деплой на gh-pages
+
+----
+
+Ссылка на демо сайта - https://baryshnikkov.github.io/mesto-project/
