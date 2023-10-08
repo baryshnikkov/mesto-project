@@ -9,7 +9,7 @@ module.exports = (env) => {
   };
 
   const mode = env?.mode || 'development';
-  const port = env?.port || 3000;
+  const port = env?.port || 8080;
 
   const config = buildWebpackConfig({
     mode,
